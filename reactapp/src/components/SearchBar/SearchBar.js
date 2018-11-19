@@ -68,21 +68,20 @@ class SearchBar extends React.Component {
     });
   }
 
-  //
-  handleSearch(event) {
+  //This is the event handler for returning searched results
+  async handleSearch(event) {
+    event.preventDefault();
     this.props.searchYelp(
       this.state.term,
       this.state.location,
       this.state.sortBy
     );
-    event.preventDefault();
   }
-
   render() {
     return (
       <div className="SearchBar">
         <div className="SearchBar-sort-options">
-          <ul>{this.renderSortByOptions()}</ul>
+          <ul id="sortOpitons">{this.renderSortByOptions()}</ul>
         </div>
         <div className="SearchBar-fields">
           <input

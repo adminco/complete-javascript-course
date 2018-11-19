@@ -2,26 +2,37 @@ import React from "react";
 import "./Business.css";
 
 class Business extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: this.props.business.image,
+      name: this.props.business.name,
+      address: this.props.business.address,
+      city: this.props.business.city,
+      zipCode: this.props.business.zipCode,
+      category: this.props.business.category,
+      rating: this.props.business.rating,
+      reviewCount: this.props.business.reviewCount
+    };
+  }
+
   render() {
     return (
       <div className="Business">
         <div className="image-container">
-          <img
-            src="https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg"
-            alt=""
-          />
+          <img src={this.state.image} alt="" />
         </div>
-        <h2>{this.props.business.name}</h2>
+        <h2>{this.state.name}</h2>
         <div className="Business-information">
           <div className="Business-address">
-            <p>{this.props.business.address}</p>
-            <p>{this.props.business.city}</p>
-            <p>{this.props.business.zipCode}</p>
+            <p>{this.state.address}</p>
+            <p>{this.state.city}</p>
+            <p>{this.state.zipCode}</p>
           </div>
           <div className="Business-reviews">
-            <h3>{this.props.business.category}</h3>
-            <h3 className="rating">{this.props.business.rating} stars</h3>
-            <p>{this.props.business.reviewCount} reviews</p>
+            <h3>{this.state.category}</h3>
+            <h3 className="rating">{this.state.rating} stars</h3>
+            <p>{this.state.reviewCount} reviews</p>
           </div>
         </div>
       </div>
